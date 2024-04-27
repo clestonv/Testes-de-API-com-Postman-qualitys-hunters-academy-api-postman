@@ -25,12 +25,24 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      - name: Step 1 Check version Newman and Node
+        run: 
+          newman --version
+          node --version
+          
+      # Runs a single command using the runners shell
+      - name: Step 2 Install Newman-Reporter-Htmlextra
+        run: sudo npm install -g newman-reporter-htmlextra
+
+      # Runs a set of command using the runners shell
+      - name: Step 3 Execute collection
+        run: newman run ./Quality\ Hunters.postman_collection.json -e ./Hunters.postman_environment.json --reportes cli, -r htmlextra --reporter-htmlextra-export 
+
+      # Runs a set of command using the runners shell
+      - name: Step 4 Archive production artifacts
+        uses: actions/upload-artifact@v4
+        with:
+             name: report
+             path: ./results/Report.html
+             
