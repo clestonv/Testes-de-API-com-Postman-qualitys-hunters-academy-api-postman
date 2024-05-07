@@ -36,7 +36,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Etapa 02 - Html Extra Reporter
         run: 
-          sudo npm i newman-reporter-htmlextra
+          sudo npm install newman-reporter-htmlextra && sudo npm install -g npm@10.7.0
     
       # Runs a set of command using the runners shell
       - name: Etapa 03 - Rodando as Collections de Testes
