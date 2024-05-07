@@ -25,12 +25,13 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
+      - name: Copiando os arquivos para maquina virtual
+        uses: actions/checkout@v4
 
       # Runs a set of commands using the runners shell
       - name: Etapa 01 - Verificação versão do Node e Newman
         run: 
-          newman --version && node --version
+          newman --version && node --version && ls
               
       # Runs a single command using the runners shell
       - name: Etapa 02 - Html Extra Reporter
