@@ -61,6 +61,7 @@ jobs:
   deploy:
     name: Deploy GitHub Pages 🌐
     runs-on: ubuntu-latest
+    if: always()
     needs: 
       - test
     permissions:
