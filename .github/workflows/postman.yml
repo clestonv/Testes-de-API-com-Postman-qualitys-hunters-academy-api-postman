@@ -33,8 +33,8 @@ jobs:
           
       # Runs a single command using the runners shell
       - name: Step 2 Install Newman-Reporter-Htmlextra
-        run: sudo npm install -g newman-reporter-htmlextra
-
+        run: sudo npm install -g newman-reporter-htmlextra  && npm i -g newman
+    
       # Runs a set of command using the runners shell
       - name: Step 3 Execute collection
         run: newman run ./QualityHunters.postman_collection.json -e ./Hunters.postman_environment.json -r htmlextra
