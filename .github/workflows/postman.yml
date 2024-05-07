@@ -35,11 +35,12 @@ jobs:
               
       # Runs a single command using the runners shell
       - name: Etapa 02 - Html Extra Reporter
-        run: sudo npm install -g newman-reporter-htmlextra
+        run: 
+          sudo npm i newman-reporter-htmlextra
     
       # Runs a set of command using the runners shell
       - name: Etapa 03 - Rodando as Collections de Testes
-        run: newman run ./hunters-collection.json -e ./hunters-env.json --reporters cli, -r htmlextra --reporter-htmlextra-export --reporter-htmlextra-displayProgressBar ./results/Report.html
+        run: sudo newman run ./hunters-collection.json -e ./hunters-env.json --reporters cli, -r htmlextra --reporter-htmlextra-export --reporter-htmlextra-displayProgressBar ./results/Report.html
 
       # Runs a set of command using the runners shell
       - name: Etapa 04 - Salvando o Resultado dos Testes
