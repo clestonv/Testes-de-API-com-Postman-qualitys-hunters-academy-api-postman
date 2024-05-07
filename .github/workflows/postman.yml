@@ -37,7 +37,7 @@ jobs:
 
       # Runs a set of command using the runners shell
       - name: Step 3 Execute collection
-        run: newman run ./Quality\ Hunters.postman_collection.json -e ./Hunters.postman_environment.json --reporters cli, -r htmlextra --reporter-htmlextra-export 
+        run: newman run ./Quality Hunters.postman_collection.json -e ./Hunters.postman_environment.json --reporters cli, -r htmlextra --reporter-htmlextra-export 
 
       # Runs a set of command using the runners shell
       - name: Step 4 Archive production artifacts
