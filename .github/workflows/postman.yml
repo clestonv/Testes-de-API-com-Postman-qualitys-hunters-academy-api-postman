@@ -38,12 +38,12 @@ jobs:
         run: |
           npm fund
           npm install -g newman
-          npm install -g newman-reporter-htmlextra          
+          sudo npm install -g newman-reporter-htmlextra        
 
       # Runs a set of command using the runners shell
       - name: Etapa 03 - Rodando as Collections de Testes
         run: |
-          newman run "hunters-collection.json" -e "hunters-env.json" --delay-request 1 --disable-unicode --reporters cli, htmlextra --reporter-htmlextra-export ./results/Report.html --reporter-htmlextra-displayProgressBar --reporter-htmlextra-browserTitle "Testes API Postman Hunters" --reporter-htmlextra-title "Testes API ERP"
+          newman run "hunters-collection.json" -e "hunters-env.json" --delay-request 1 --disable-unicode --reporters cli, -r htmlextra --reporter-htmlextra-export ./result/Report.html --reporter-htmlextra-displayProgressBar --reporter-htmlextra-browserTitle "Testes API Postman Hunters" --reporter-htmlextra-title "Testes API ERP"
 
       # Runs a set of command using the runners shell
       - name: Etapa 04 - Salvando o Resultado dos Testes
@@ -51,7 +51,7 @@ jobs:
         if: always()
         with:
           name: report
-          path: ./results/
+          path: ./result/
              
   deploy:
     name: Deploy GitHub Pages 🌐
