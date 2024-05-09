@@ -43,7 +43,7 @@ jobs:
       # Runs a set of command using the runners shell
       - name: Etapa 03 - Rodando as Collections de Testes
         run: |
-          newman run "hunters-collection.json" -e "hunters-env.json" --delay-request 1 --disable-unicode -r htmlextra --reporter-htmlextra-export ./results/Report.html --reporter-htmlextra-displayProgressBar --reporter-htmlextra-browserTitle "Testes API Postman Hunters" --reporter-htmlextra-title "Testes API ERP"
+          newman run "hunters-collection.json" -e "hunters-env.json" --delay-request 1 --disable-unicode --reporters cli, htmlextra --reporter-htmlextra-export ./results/Report.html --reporter-htmlextra-displayProgressBar --reporter-htmlextra-browserTitle "Testes API Postman Hunters" --reporter-htmlextra-title "Testes API ERP"
 
       # Runs a set of command using the runners shell
       - name: Etapa 04 - Salvando o Resultado dos Testes
