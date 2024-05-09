@@ -28,11 +28,6 @@ jobs:
       - name: Copiando os arquivos para maquina virtual
         uses: actions/checkout@v4
 
-      - name: Etapa 00 - Instalação Node 16.x
-        uses: actions/setup-node@v4
-        with:
-          node-version: '16.x'
-
       # Runs a set of commands using the runners shell
       - name: Etapa 01 - Verificação versão do Node e Newman
         run: |
@@ -48,7 +43,7 @@ jobs:
       # Runs a set of command using the runners shell
       - name: Etapa 03 - Rodando as Collections de Testes
         run: |
-          newman run "hunters-collection.json" -e "hunters-env.json" --disable-unicode -r htmlextra --reporter-htmlextra-export ./results/Report.html --reporter-htmlextra-displayProgressBar --insecure -k --reporter-htmlextra-browserTitle "Testes API Postman Hunters" --reporter-htmlextra-title "Testes API ERP"
+          newman run "hunters-collection.json" -e "hunters-env.json" --delay-request 1 --disable-unicode -r htmlextra --reporter-htmlextra-export ./results/Report.html --reporter-htmlextra-displayProgressBar --reporter-htmlextra-browserTitle "Testes API Postman Hunters" --reporter-htmlextra-title "Testes API ERP"
 
       # Runs a set of command using the runners shell
       - name: Etapa 04 - Salvando o Resultado dos Testes
